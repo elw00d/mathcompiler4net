@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project default="build">
+  <property name="project.output.dir" value="${path::combine(path::get-full-path('output'), framework::get-target-framework())}" />
+  <property name="project.output.package.dir" value="${path::combine(path::get-full-path('output'), 'packages')}" />
+  <property name="project.output.package-src.dir" value="${path::combine(path::get-full-path('output'), 'packages-src')}" />
+  <property name="project.is-debug" value="false" overwrite="false" />
+  <property name="project.version" value="0.1.0.2" overwrite="false" />
+
+  <property name="project.3rd-parties.dir" value="${path::get-full-path('3rd-party')}" overwrite="false" />
+
+  <!-- define project version info depending on debug/release build -->
+  <if test="${project.is-debug}">
+    <property name="project.version.info" value="${framework::get-target-framework()} debug" />
+    <property name="project.output.dir" value="${project.output.dir}/debug" />
+  </if>
+  <if test="${not project.is-debug}">
+    <property name="project.version.info" value="${framework::get-target-framework()} release" />
+    <property name="project.output.dir" value="${project.output.dir}/release" />
+  </if>
+
+  <if test="${not directory::exists(project.output.dir)}">
+    <mkdir dir="${project.output.dir}"/>
+  </if>
+
+  <property name="assembly-name" value="elw.library.mathcompiler" overwrite="true"  />
+  <property name="assembly-description" value="Advanced mathematic expressions processing library." overwrite="true"  />
+  <property name="assembly-company" value="Elwood Home" overwrite="true"  />
+  <property name="assembly-configuration" value="${project.version.info}" overwrite="true"  />
+  <property name="assembly-version" value="${project.version}" overwrite="true"  />
+</project>

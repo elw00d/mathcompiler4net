@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ELW.Library.Math", "ELW.Library.Math\ELW.Library.Math.csproj", "{0374C9F1-8508-421C-82A7-8D5DADB2B49A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{64DC8B8D-2440-4E57-AA52-24BA0D9E58F0}"
+	ProjectSection(SolutionItems) = preProject
+		build-common.build.xml = build-common.build.xml
+		build-properties.build.xml = build-properties.build.xml
+		math-compiler.build = math-compiler.build
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExampleApp", "ExampleApp\ExampleApp.csproj", "{98C8F387-2CA9-4ED0-A70A-7AD18FD01AEB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0374C9F1-8508-421C-82A7-8D5DADB2B49A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0374C9F1-8508-421C-82A7-8D5DADB2B49A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0374C9F1-8508-421C-82A7-8D5DADB2B49A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0374C9F1-8508-421C-82A7-8D5DADB2B49A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98C8F387-2CA9-4ED0-A70A-7AD18FD01AEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98C8F387-2CA9-4ED0-A70A-7AD18FD01AEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98C8F387-2CA9-4ED0-A70A-7AD18FD01AEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98C8F387-2CA9-4ED0-A70A-7AD18FD01AEB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

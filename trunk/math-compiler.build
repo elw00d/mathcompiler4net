@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project default="build">
+  <include buildfile="build-properties.build.xml" />
+  <include buildfile="build-common.build.xml" />
+
+  <target name="build">
+    <nant buildfile="ELW.Library.Math/elw-library-math.build" target="build" inheritall="true" />
+    <nant buildfile="ExampleApp/example-app.build" target="build" inheritall="true" />
+
+    <if test="${not project.is-debug}">
+      <delete dir="${project.output.package.dir}"  if="${directory::exists( project.output.package.dir )}"/>
+      <mkdir dir="${project.output.package.dir}"/>
+      <zip zipfile="${project.output.package.dir}/mathcompiler-${framework::get-target-framework()}-${project.version}.zip" >
+        <fileset basedir="${project.output.dir}" defaultexcludes="false" >
+          <include name="**/*.dll" />
+          <include name="**/*.xml" />
+          <include name="**/*.exe" />
+        </fileset>
+      </zip>
+    </if>
+  </target>
+
+  <target name="clean">
+    <property name="clean-base-dir" value=".\" overwrite="true" />
+    <call target="clean_target" />
+  </target>
+
+  <target name="zip" depends="clean">
+    <property name="zip-base-dir" value=".\" overwrite="true" />
+
+    <delete file="source.zip" if="${file::exists('source.zip')}" />
+
+    <zip zipfile="source.zip" >
+      <fileset basedir="${zip-base-dir}" defaultexcludes="false" >
+        <include name="**/**" />
+      </fileset>
+    </zip>
+  </target>
+</project>

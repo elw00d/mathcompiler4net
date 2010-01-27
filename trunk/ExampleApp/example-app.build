@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project default="build">
+  <include buildfile="../build-common.build.xml" />
+  <target name="build" >
+
+    <property name="assembly-name" value="ExampleApp" overwrite="true"  />
+    <property name="assembly-description" value="Example application." overwrite="true"  />
+    <call target="generate_asminfo"/>
+
+    <csc target="winexe" output="${project.output.dir}/${assembly-name}.exe"
+         debug="${project.is-debug}"
+         doc="${project.output.dir}/${assembly-name}.xml">
+      <!--<nowarn><warning number="1591"/></nowarn>-->
+
+      <resources>
+        <include name="**/*.resx" />
+      </resources>
+
+      <sources>
+        <include name="/**.cs"/>
+      </sources>
+      <references>
+        <lib>
+          <include name="${project.3rd-parties.dir}" />
+          <include name="${project.output.dir}" />
+        </lib>
+        <include name="System.dll" />
+        <include name="System.Drawing.dll" />
+        <include name="System.Windows.Forms.dll" />
+
+        <include name="ELW.Library.Math.dll" />
+      </references>
+    </csc>
+  </target>
+</project>
