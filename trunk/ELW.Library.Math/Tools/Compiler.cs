@@ -55,7 +55,7 @@ namespace ELW.Library.Math.Tools {
                             if (operation.OperandsCount == 1) {
                                 // If operator placed at the start of subexpression
                                 if ((itemIndex == 0) ||
-                                    ((itemIndex > 0) && (preparedExpression.PreparedExpressionItems[itemIndex - 1].Kind == PreparedExpressionItemKind.Delimiter) && (preparedExpression.PreparedExpressionItems[itemIndex - 1].DelimiterKind == DelimiterKind.OpeningBrace))
+                                    ((itemIndex > 0) && (preparedExpression.PreparedExpressionItems[itemIndex - 1].Kind == PreparedExpressionItemKind.Delimiter) && ((preparedExpression.PreparedExpressionItems[itemIndex - 1].DelimiterKind == DelimiterKind.OpeningBrace) || (preparedExpression.PreparedExpressionItems[itemIndex - 1].DelimiterKind == DelimiterKind.Comma)))
                                     ||
                                     (operationsStack.IsLastOperationBinaryOrHavingMoreOperands())
                                     ) {
